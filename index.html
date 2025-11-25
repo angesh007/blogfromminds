@@ -1,214 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>blogfrommind - AI Insights & Innovation</title>
+  <title>blogfrommind - Decoding AI's Future</title>
   <link rel="canonical" href="https://www.blogfromminds.pw/">
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="Explore AI insights, musings, and commentary from blogfrommind. Uncover the future of AI in LLMs, transformers, GANs, and beyond.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .fadeIn { animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
     }
-    .hover-scale { transition: transform 0.3s ease; }
-    .hover-scale:hover { transform: scale(1.03); }
-    .gradient-text { background: linear-gradient(90deg, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .header-gradient-text { background: linear-gradient(90deg, #ffffff, #e0e0e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* Modern Gradients & Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: gradientMove 5s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      /* Make the header blend seamlessly with the page background */
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Glassmorphism (tone-matched to bg-mesh) */
+    .glass {
+      background: linear-gradient(to bottom,
+          rgba(2, 6, 23, 0.70),
+          rgba(2, 6, 23, 0.35));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+      box-shadow: 0 6px 20px rgba(2, 6, 23, 0.25);
+    }
+
+    #navbar.scrolled {
+      background: linear-gradient(to bottom,
+          rgba(2, 6, 23, 0.55),
+          rgba(2, 6, 23, 0.25));
+    }
+
+    .glass-card {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Background Mesh Gradient */
+    .bg-mesh {
+      background-color: #020617;
+      background-image:
+        radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Animations */
+    .fadeIn {
+      animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+
+    /* Keep header transparent so mesh shows through */
+    header {
+      background: transparent;
+    }
   </style>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1054764236351101"
-crossorigin="anonymous"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1054764236351101"
+    crossorigin="anonymous"></script>
 
-  
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JX5PCSL6J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-2JX5PCSL6J');
   </script>
 </head>
-<body class="min-h-screen flex flex-col bg-gray-900 text-gray-100">
-  <nav class="bg-gray-800/90 backdrop-blur-lg sticky top-0 z-30 shadow-lg border-b border-gray-700">
-    <div class="container mx-auto flex items-center justify-between h-16 px-6">
-      <a href="#" class="flex items-center gap-3 text-2xl font-bold text-gray-100 tracking-tight"> <span class="rounded-full bg-blue-600 px-3 py-1 text-white select-none">AI</span>
-        <span class="gradient-text">blogfrommind</span> </a>
-      <div class="hidden md:flex gap-8 text-gray-300 text-base font-medium"> <a href="#" class="hover:text-blue-400 transition">Home</a>
-        <a href="about.html" class="hover:text-blue-400 transition">About</a>
+
+<body class="min-h-screen flex flex-col bg-mesh text-slate-100 selection:bg-fuchsia-500/30">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="glass sticky top-0 z-50 transition-transform duration-300">
+    <div class="container mx-auto flex items-center justify-between h-20 px-6">
+      <a href="index.html"
+        class="text-2xl font-bold tracking-tight text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-400 hover:to-fuchsia-400 transition-all duration-300"
+        style="font-family: 'Outfit', sans-serif;">
+        blogfrommind
+      </a>
+
+      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+        <a href="index.html"
+          class="hover:text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full">Home</a>
+        <a href="about.html"
+          class="hover:text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-fuchsia-400 after:transition-all after:duration-300 hover:after:w-full">About</a>
       </div>
+
       <div class="md:hidden flex items-center">
-        <button aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden');">
-          <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none"><path stroke-width="2" stroke-linecap="round" d="M5 7h14M5 12h14M5 17h14"/></svg>
+        <button aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden');"
+          class="text-slate-300 hover:text-white transition">
+          <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <path stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
       </div>
     </div>
-    <div id="mobileMenu" class="md:hidden hidden px-6 pb-4 bg-gray-800/90">
-      <a href="#" class="block text-gray-300 py-2 hover:text-blue-400 transition">Home</a>
-      <a href="about.html" class="block text-gray-300 py-2 hover:text-blue-400 transition">About</a>
+
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-6 glass border-t-0 border-slate-800">
+      <a href="index.html"
+        class="block text-slate-300 py-3 hover:text-blue-400 transition border-b border-slate-800/50">Home</a>
+      <a href="about.html" class="block text-slate-300 py-3 hover:text-fuchsia-400 transition">About</a>
     </div>
   </nav>
 
-<header class="relative pt-20 pb-16 shadow-xl overflow-hidden">
-  <div class="absolute inset-0">
-    <img src="images/backg.png" alt="Background Image" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-black opacity-50"></div> </div>
-  <div class="container mx-auto flex flex-col items-center text-center px-6 relative z-10">
-    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight text-white"> Decoding AI's Future </h1>
-    <p class="text-xl md:text-2xl max-w-3xl font-light mb-8 text-gray-200 leading-relaxed"> Your source for incisive AI commentary, cutting-edge insights, and the human perspective in an intelligent world. </p>
-    <a href="#blogPostsContainer" class="px-7 py-3 bg-white/20 backdrop-blur-lg rounded-full text-gray-100 shadow-xl text-lg font-medium hover:bg-white/30 transition duration-300"> 🚀 Explore Our Latest Insights </a>
-  </div>
-</header>
-  <main class="container mx-auto px-6 flex flex-col gap-12 flex-grow py-10">
-    <section>
-      <div class="bg-gray-800 rounded-2xl shadow-xl p-8 mb-12 border-l-4 border-blue-500 fadeIn hover-scale">
-        <div class="mb-4 flex gap-3 items-center">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300">Editor's Pick</span>
-          <span class="text-xs text-gray-400">7 July 2025</span>
-        </div>
-        <div class="flex flex-col md:flex-row gap-8 items-center">
-          <a href="post7.html" class="md:w-1/2 w-full">
-            <img src="images/post7.png" alt="Featured LLM Article" class="rounded-xl shadow-md hover-scale object-cover w-full h-56 md:h-72 transition" />
-          </a>
-          <div class="md:w-1/2 w-full">
-            <h3 class="text-2xl font-bold text-gray-100 mb-3">
-              <a href="post7.html" class="hover:text-blue-400 transition">Exhaust, Echoes, and the Invisible Heat: A Human Reflection on the Hidden Costs of Our Motion</a>
-            </h3>
-            <p class="text-gray-300 mb-6 line-clamp-4">
-              I remember the morning I truly noticed the air—how I inhaled, expecting crispness but found instead a heaviness that clung to my insides. The haze over my city whispered stories too easy to ignore: stories of cars lining up,            </p>
-            <a href="post7.html" class="text-blue-400 hover:text-purple-400 font-medium flex items-center gap-2">
-              Read Full Article <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
+  <header class="relative pt-32 pb-24 overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none">
+      <!-- Slightly softer and lower to avoid a visible top band -->
+      <div class="absolute top-24 left-10 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-[100px] animate-pulse"
+        style="animation-delay: 1s;"></div>
+    </div>
+
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div
+        class="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm font-medium text-blue-300 animate-[fadeInUp_0.8s_ease-out_both]">
+        Welcome to the Future
       </div>
-      <h2 class="text-3xl font-bold text-gray-100 mb-8">Latest Articles</h2>
-      <div id="blogPostsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
-    </section>
+      <h1
+        class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight text-white drop-shadow-sm animate-[fadeInUp_0.8s_ease-out_0.1s_both]">
+        Decoding <span class="gradient-text">AI's Future</span>
+      </h1>
+      <p
+        class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-[fadeInUp_0.8s_ease-out_0.2s_both]">
+        Exploring the profound impact of artificial intelligence on humanity, creativity, and the world we share.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-[fadeInUp_0.8s_ease-out_0.3s_both]">
+        <button onclick="document.getElementById('blogPostsContainer').scrollIntoView({behavior: 'smooth'})"
+          class="px-8 py-4 bg-white text-slate-900 rounded-full font-semibold hover:bg-blue-50 transition-all hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+          Start Reading
+        </button>
+        <a href="about.html"
+          class="px-8 py-4 bg-white/5 text-white border border-white/10 rounded-full font-semibold hover:bg-white/10 transition-all hover:scale-105 backdrop-blur-sm">
+          About Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-6 pb-20 relative z-10">
+    <div class="flex items-center gap-4 mb-12">
+      <h2 class="text-3xl font-bold text-white">Latest Articles</h2>
+      <div class="h-px bg-slate-800 flex-grow"></div>
+    </div>
+
+    <div id="blogPostsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Blog posts will be dynamically inserted here -->
+    </div>
   </main>
 
-  <footer class="bg-gray-950 text-gray-300 px-6 py-10 text-sm">
-    <div class="container mx-auto flex flex-col md:flex-row md:justify-between items-center gap-8">
-      <div>
-        <span class="font-semibold text-lg tracking-tight gradient-text">blogfrommind</span><br>
-        <span class="text-gray-500 text-xs">© 2025. All rights reserved.</span>
+  <footer class="border-t-0 border-slate-800 bg-slate-950/50 backdrop-blur-xl">
+    <div class="container mx-auto px-6 py-12">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+          <a href="index.html" class="text-2xl font-bold tracking-tight text-white mb-2 block"
+            style="font-family: 'Outfit', sans-serif;">blogfrommind</a>
+          <p class="text-slate-500 text-sm">Exploring the intersection of humanity and artificial intelligence.</p>
+        </div>
+
+        <div class="flex gap-6">
+          <a href="#" class="text-slate-400 hover:text-white transition-colors" aria-label="Twitter">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84">
+              </path>
+            </svg>
+          </a>
+          <a href="#" class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z">
+              </path>
+            </svg>
+          </a>
+        </div>
       </div>
-      <div class="mt-4 md:mt-0">
-        <nav class="flex gap-6 text-xs text-gray-400">
-          <a href="#" class="hover:text-blue-400 transition">Home</a>
-          <a href="about.html" class="hover:text-blue-400 transition">About</a>
-        </nav>
+
+      <div
+        class="border-t border-slate-800/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+        <p>&copy; 2025 blogfrommind. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script>
+    // Blog Posts Data
     const blogPosts = [
-      {
-        id: 'post1',
-        image: 'images/post1.png',
-        title: 'Transformers and Their Impact on NLP',
-        excerpt: "Dive into the revolutionary architecture of Transformers and how they've reshaped NLP, enabling new frontiers in machine translation, text generation, and more.",
-        fileName: 'post1.html',
-        date: "5 July 2025"
-      },
-      {
-        id: 'post2',
-        image: 'images/post2.png',
-        title: 'Generative Adversarial Networks in Creative AI',
-        excerpt: "How GANs are pushing creative AI: generating realistic images, composing music, and designing entirely novel art forms.",
-        fileName: 'post2.html',
-        date: "2 July 2025"
-      },
-      {
-        id: 'post3',
-        image: 'images/post3.png',
-        title: 'Reinforcement Learning Advancements and Applications',
-        excerpt: 'Discover the latest breakthroughs in RL and its diverse applications, from games to robotic control to autonomous systems.',
-        fileName: 'post3.html',
-        date: "30 June 2025"
-      },
-      {
-        id: 'post4',
-        image: 'images/post4.png',
-        title: 'Diffusion Models in Image Generation',
-        excerpt: 'Uncover the magic behind diffusion models, the cutting-edge technique revolutionizing image generation with stunning quality and diversity.',
-        fileName: 'post4.html',
-        date: "25 June 2025"
-      },
-     
-      {
-        id: 'post5',
-        image: 'images/post5.png',
-        title: 'Large Language Models: GPT and Beyond',
-        excerpt: "Large Language Models (LLMs) like OpenAI's GPT series have transformed how computers read, write, and interact with human language.",
-        fileName: 'post5.html',
-        date: "7 July 2025"
-
-      },
-      {
-        id: 'post6',
-        image: 'images/post6.jpg',
-        title: 'AI and the Future of Work: Adapting to a New Era',
-        excerpt: 'Artificial Intelligence (AI) isn’t just a buzzword anymore—it’s rapidly reshaping the world of work. From automating repetitive tasks to enabling brand new industries, the impact of AI on jobs has become one of the most debated topics of our time.',
-        fileName: 'post6.html',
-        date: "7 July 2025"
-      }, {
-        id: 'post7',
-        image: 'images/post7.png',
-        title: 'Exhaust, Echoes, and the Invisible Heat: A Human Reflection on the Hidden Costs of Our Motion',
-        excerpt: 'I remember the morning I truly noticed the air—how I inhaled, expecting crispness but found instead a heaviness that clung to my insides. The haze over my city  Intelligence (AI) isn’t just a buzzword anymore—it’s rapidly reshaping the world of work. From automating repetitive tasks to enabling brand new industries, the impact of AI on jobs has become one of the most debated topics of our time.',
-        fileName: 'post7.html',
-        date: "24 July 2025"
-      },
+      { title: "The Rise of Transformers in NLP", excerpt: "How attention mechanisms revolutionized the way machines understand language.", image: "images/post1.png", link: "post1.html", category: "NLP" },
+      { title: "GANs in Creative AI", excerpt: "Exploring the adversarial dance that creates photorealistic images from noise.", image: "images/post2.png", link: "post2.html", category: "Generative AI" },
+      { title: "Reinforcement Learning", excerpt: "From AlphaGo to robotics: how agents learn by interacting with their environment.", image: "images/post3.png", link: "post3.html", category: "Robotics" },
+      { title: "Diffusion Models Explained", excerpt: "The math and magic behind the latest wave of AI art generation tools.", image: "images/post4.png", link: "post4.html", category: "Generative AI" },
+      { title: "LLMs: GPT and Beyond", excerpt: "Understanding the scale and capabilities of Large Language Models.", image: "images/post5.png", link: "post5.html", category: "LLMs" },
+      { title: "AI and the Future of Work", excerpt: "Navigating the economic and social shifts driven by automation.", image: "images/post6.jpg", link: "post6.html", category: "Society" },
+      { title: "Exhaust, Echoes, and the Invisible Heat", excerpt: "A human reflection on the hidden costs of our motion and the environment.", image: "images/post7.png", link: "post7.html", category: "Environment", featured: true }
     ];
 
     const blogPostsContainer = document.getElementById('blogPostsContainer');
 
     function renderBlogPosts(postsToRender) {
       blogPostsContainer.innerHTML = '';
-      postsToRender.forEach((post, idx) => {
+
+      // Sort: Featured first, then others
+      const sortedPosts = [...postsToRender].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+      sortedPosts.forEach((post, idx) => {
         const delay = 100 * idx;
-        const card = document.createElement('div');
-        card.className = 'bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl border border-gray-700 transition duration-300 overflow-hidden fadeIn hover-scale';
+        const isFeatured = post.featured;
+        const colSpanClass = isFeatured ? 'md:col-span-2 lg:col-span-3' : '';
+
+        const card = document.createElement('a');
+        card.href = post.link;
+        card.className = `glass-card rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full fadeIn ${colSpanClass} block`;
         card.style.animationDelay = `${delay}ms`;
+
         card.innerHTML = `
-          <a href="${post.fileName}">
-            <img
-              src="${post.image}"
-              alt="${post.title}"
-              class="w-full h-48 object-cover rounded-t-xl hover:brightness-110 transition duration-300"
-              onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Missing';"
-            />
-          </a>
-          <div class="p-6 flex flex-col justify-between h-full">
-            <div>
-              <h2 class="text-lg font-bold text-gray-100 mb-2 line-clamp-2">
-                <a href="${post.fileName}" class="hover:text-blue-400 transition">${post.title}</a>
-              </h2>
-              <div class="mb-3 text-xs text-gray-400">${post.date}</div>
-              <p class="text-gray-300 text-sm mb-4 line-clamp-3">${post.excerpt}</p>
+          <div class="relative overflow-hidden ${isFeatured ? 'h-64 md:h-96' : 'h-48'}">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10"></div>
+            <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/475569?text=Image+Missing'">
+            <div class="absolute top-4 left-4 z-20">
+              <span class="px-3 py-1 text-xs font-semibold bg-blue-600/90 text-white rounded-full backdrop-blur-sm shadow-lg border border-blue-400/20">
+                ${post.category}
+              </span>
             </div>
-            <div class="flex justify-between items-center">
-              <a href="${post.fileName}" class="text-blue-400 hover:text-purple-400 font-medium flex items-center gap-2">
-                Read More <span aria-hidden="true">→</span>
-              </a>
-              <div class="flex items-center space-x-4">
-                <button title="Like this article" class="text-gray-400 hover:text-red-400 transition duration-200 outline-none focus:outline-blue-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21C12 21 8 17.143 5.6 14.428 3.94 12.6 2 10.315 2 7.924 2 5.184 4.239 3 7 3c1.657 0 3.124.991 3.784 2.48C11.876 3.991 13.343 3 15 3c2.761 0 5 2.184 5 4.924 0 2.391-1.94 4.676-3.6 6.504C16 17.142 12 21 12 21Z"/>
-                  </svg>
-                </button>
-                <button title="Bookmark" class="text-gray-400 hover:text-blue-400 transition duration-200 outline-none focus:outline-blue-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-7-5-7 5V4z"/>
-                  </svg>
-                </button>
-              </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow relative">
+            <h3 class="text-xl ${isFeatured ? 'md:text-3xl' : ''} font-bold text-white mb-3 leading-tight group-hover:text-blue-400 transition-colors">
+              ${post.title}
+            </h3>
+            <p class="text-slate-400 text-sm ${isFeatured ? 'md:text-lg' : ''} mb-6 flex-grow leading-relaxed">
+              ${post.excerpt}
+            </p>
+            <div class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors mt-auto">
+              Read Article 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
             </div>
           </div>
         `;
@@ -216,7 +300,30 @@ crossorigin="anonymous"></script>
       });
     }
 
-    document.addEventListener('DOMContentLoaded', () => renderBlogPosts(blogPosts));
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBlogPosts(blogPosts);
+
+      // Scroll behavior for navbar (hide on scroll down, show on scroll up + tint adjust)
+      let lastScrollY = window.scrollY;
+      const navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
+        }
+
+        if (window.scrollY > 8) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+
+        lastScrollY = window.scrollY;
+      });
+    });
   </script>
 </body>
+
 </html>
