@@ -7,76 +7,7 @@
   <title>Exhaust, Echoes, and the Invisible Heat - blogfrommind</title>
   <link rel="canonical" href="https://www.blogfromminds.pw/post7.html">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Custom styles for Poppins font and general body */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@500;700&display=swap');
-
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Modern Gradients & Text */
-    .gradient-text {
-      background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% auto;
-      animation: gradientMove 5s ease infinite;
-    }
-
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Glassmorphism */
-    .glass {
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .glass-card {
-      background: rgba(30, 41, 59, 0.4);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Background Mesh Gradient */
-    .bg-mesh {
-      background-color: #020617;
-      background-image:
-        radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
-      background-attachment: fixed;
-    }
-
-    /* Typography Overrides for Dark Mode */
-    .prose strong {
-      color: #e2e8f0;
-    }
-
-    .prose h3 {
-      color: #f1f5f9;
-    }
-
-    .prose li::marker {
-      color: #60a5fa;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1054764236351101"
     crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JX5PCSL6J"></script>
@@ -90,27 +21,25 @@
 
 </head>
 
-<body class="min-h-screen flex flex-col bg-mesh text-slate-100 selection:bg-fuchsia-500/30">
+<body class="min-h-screen flex flex-col">
 
   <!-- Navigation -->
-  <nav id="navbar" class="glass sticky top-0 z-50 transition-transform duration-300">
+  <nav id="navbar" class="comic-nav sticky top-0 z-50 transition-transform duration-300">
     <div class="container mx-auto flex items-center justify-between h-20 px-6">
       <a href="index.html"
-        class="text-2xl font-bold tracking-tight text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-400 hover:to-fuchsia-400 transition-all duration-300"
+        class="text-2xl font-bold tracking-tight text-slate-900 hover:text-slate-700 transition-all duration-300"
         style="font-family: 'Outfit', sans-serif;">
         blogfrommind
       </a>
 
-      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-        <a href="index.html"
-          class="hover:text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full">Home</a>
-        <a href="about.html"
-          class="hover:text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-fuchsia-400 after:transition-all after:duration-300 hover:after:w-full">About</a>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
       </div>
 
       <div class="md:hidden flex items-center">
         <button aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden');"
-          class="text-slate-300 hover:text-white transition">
+          class="text-slate-900 hover:text-slate-600 transition">
           <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
             <path stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -118,24 +47,24 @@
       </div>
     </div>
 
-    <div id="mobileMenu" class="md:hidden hidden px-6 pb-6 glass border-t-0 border-slate-800">
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-6 bg-white border-b-2 border-black">
       <a href="index.html"
-        class="block text-slate-300 py-3 hover:text-blue-400 transition border-b border-slate-800/50">Home</a>
-      <a href="about.html" class="block text-slate-300 py-3 hover:text-fuchsia-400 transition">About</a>
+        class="block text-slate-900 py-3 hover:text-yellow-600 transition border-b border-slate-200">Home</a>
+      <a href="about.html" class="block text-slate-900 py-3 hover:text-yellow-600 transition">About</a>
     </div>
   </nav>
 
   <main class="container mx-auto p-6 flex-grow py-12 relative z-10">
-    <article
-      class="glass-card rounded-3xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto border border-white/5 text-slate-100 relative overflow-hidden">
+    <article class="comic-card p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden bg-white">
 
       <!-- Decorative background blob -->
-      <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] pointer-events-none">
+      <div
+        class="absolute -top-20 -right-20 w-64 h-64 bg-yellow-200 rounded-full blur-[80px] pointer-events-none opacity-50">
       </div>
 
       <div class="mb-8 relative z-10">
         <a href="index.html"
-          class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-500/20">
+          class="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-yellow-600 transition-colors duration-200 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 hover:bg-yellow-100">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m15 18-6-6 6-6"></path>
@@ -144,50 +73,52 @@
         </a>
       </div>
 
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight relative z-10">
-        Exhaust, Echoes, and the <span class="gradient-text">Invisible Heat</span>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-8 leading-tight tracking-tight relative z-10">
+        Exhaust, Echoes, and the <span class="text-highlight">Invisible Heat</span>
       </h1>
 
-      <div class="relative rounded-2xl overflow-hidden mb-10 shadow-2xl border border-white/10 group">
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent z-10"></div>
+      <div
+        class="relative rounded-2xl overflow-hidden mb-10 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group">
         <img src="images/post7.png" alt="Environmental Reflection"
           class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700 ease-out"
-          onerror="this.onerror=null;this.src='https://placehold.co/800x450/1e293b/475569?text=Image+Missing';" />
+          onerror="this.onerror=null;this.src='https://placehold.co/800x450/f1f5f9/0f172a?text=Image+Missing';" />
       </div>
 
-      <section class="prose prose-lg prose-invert max-w-none text-slate-300 leading-relaxed relative z-10">
-        <p class="text-xl mb-8 font-light text-slate-200 leading-relaxed">
+      <section class="prose prose-lg max-w-none text-slate-600 leading-relaxed relative z-10">
+        <p class="text-xl mb-8 font-light text-slate-700 leading-relaxed">
           I remember the morning I truly noticed the air—how I inhaled, expecting crispness, but tasted metal and dust
           instead. It was a subtle shift, a quiet realization that the world around me was changing, breathing heavier
           under the weight of our collective motion.
         </p>
 
-        <h3 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
-          <span class="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 mt-8 flex items-center gap-3">
+          <span class="w-8 h-1 bg-yellow-400 rounded-full border border-black"></span>
           The Invisible Weight
         </h3>
         <p class="mb-4">We often talk about climate change in statistics: degrees of warming, tons of carbon, inches of
           sea-level rise. But the reality is felt in the invisible moments:</p>
         <ul class="space-y-4 mb-8 ml-4">
           <li class="flex gap-3">
-            <span class="text-blue-400 font-bold">•</span>
-            <span><strong class="text-white">The Heat</strong>: It's not just the summer sun; it's the heat radiating
+            <span class="text-yellow-500 font-bold">•</span>
+            <span><strong class="text-slate-900">The Heat</strong>: It's not just the summer sun; it's the heat
+              radiating
               from asphalt long after sunset, a city that never quite cools down.</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-blue-400 font-bold">•</span>
-            <span><strong class="text-white">The Noise</strong>: The constant hum of engines and machinery, a sonic
+            <span class="text-yellow-500 font-bold">•</span>
+            <span><strong class="text-slate-900">The Noise</strong>: The constant hum of engines and machinery, a sonic
               exhaust that fills the spaces where silence used to live.</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-blue-400 font-bold">•</span>
-            <span><strong class="text-white">The Haze</strong>: Looking at a horizon that is slightly blurred, not by
+            <span class="text-yellow-500 font-bold">•</span>
+            <span><strong class="text-slate-900">The Haze</strong>: Looking at a horizon that is slightly blurred, not
+              by
               mist, but by the suspended remnants of our daily commute.</span>
           </li>
         </ul>
 
-        <h3 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
-          <span class="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></span>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 mt-8 flex items-center gap-3">
+          <span class="w-8 h-1 bg-yellow-400 rounded-full border border-black"></span>
           Echoes of Our Choices
         </h3>
         <p class="mb-4">Every action has an echo. The convenience of today often borrows from the clarity of tomorrow.
@@ -197,31 +128,33 @@
           first step. Noticing the exhaust, hearing the echoes, feeling the invisible heat—these are not just symptoms
           of a problem; they are calls to action.</p>
 
-        <h3 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
-          <span class="w-8 h-1 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full"></span>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 mt-8 flex items-center gap-3">
+          <span class="w-8 h-1 bg-yellow-400 rounded-full border border-black"></span>
           Finding a New Path
         </h3>
         <p class="mb-4">The path forward isn't about returning to the past; it's about reimagining the future:</p>
         <ul class="space-y-4 mb-8 ml-4">
-          <li class="bg-slate-800/50 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <strong class="text-blue-300 block mb-1">Sustainable Innovation</strong>
+          <li
+            class="bg-white p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <strong class="text-slate-900 block mb-1">Sustainable Innovation</strong>
             Embracing technologies that heal rather than harm—electric mobility, renewable energy, and circular
             economies.
           </li>
-          <li class="bg-slate-800/50 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <strong class="text-purple-300 block mb-1">Mindful Consumption</strong>
+          <li
+            class="bg-white p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <strong class="text-slate-900 block mb-1">Mindful Consumption</strong>
             Choosing quality over quantity, durability over disposability, and conscious living over mindless
             accumulation.
           </li>
-          <li class="bg-slate-800/50 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <strong class="text-pink-300 block mb-1">Reconnecting with Nature</strong>
+          <li
+            class="bg-white p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <strong class="text-slate-900 block mb-1">Reconnecting with Nature</strong>
             Protecting green spaces not just as resources, but as essential sanctuaries for our own well-being.
           </li>
         </ul>
 
-        <div
-          class="bg-gradient-to-br from-blue-900/30 to-purple-900/30 p-6 rounded-2xl border border-blue-500/20 mt-10">
-          <p class="text-lg m-0 italic text-slate-200">
+        <div class="bg-yellow-50 p-6 rounded-2xl border-l-4 border-yellow-400 mt-10">
+          <p class="text-lg m-0 italic text-slate-800">
             "The invisible heat is rising, but so is our capacity for change. By listening to the echoes of our impact,
             we can choose to leave a different legacy—one where the air is crisp, the silence is peaceful, and the
             future is bright not from burning, but from blooming."
@@ -231,17 +164,17 @@
     </article>
   </main>
 
-  <footer class="border-t-0 border-slate-800 bg-slate-950/50 backdrop-blur-xl mt-20">
+  <footer class="border-t-2 border-black bg-slate-50 mt-20">
     <div class="container mx-auto px-6 py-12">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="text-center md:text-left">
-          <a href="index.html" class="text-2xl font-bold tracking-tight text-white mb-2 block"
+          <a href="index.html" class="text-2xl font-bold tracking-tight text-slate-900 mb-2 block"
             style="font-family: 'Outfit', sans-serif;">blogfrommind</a>
           <p class="text-slate-500 text-sm">Exploring the intersection of humanity and artificial intelligence.</p>
         </div>
 
         <div class="flex gap-6">
-          <a href="#" class="text-slate-400 hover:text-white transition-colors">
+          <a href="#" class="text-slate-400 hover:text-slate-900 transition-colors">
             <span class="sr-only">Twitter</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -249,7 +182,7 @@
               </path>
             </svg>
           </a>
-          <a href="#" class="text-slate-400 hover:text-white transition-colors">
+          <a href="#" class="text-slate-400 hover:text-slate-900 transition-colors">
             <span class="sr-only">GitHub</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <path fill-rule="evenodd"
@@ -260,11 +193,11 @@
         </div>
       </div>
       <div
-        class="border-t border-slate-800/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+        class="border-t border-slate-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
         <p>&copy; 2025 blogfrommind. All rights reserved.</p>
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
-          <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+          <a href="#" class="hover:text-slate-900 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-900 transition">Terms of Service</a>
         </div>
       </div>
     </div>

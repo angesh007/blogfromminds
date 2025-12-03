@@ -7,76 +7,7 @@
   <title>Generative Adversarial Networks (GANs) in Creative AI - blogfrommind</title>
   <link rel="canonical" href="https://www.blogfromminds.pw/post2.html">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Custom styles for Poppins font and general body */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@500;700&display=swap');
-
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Modern Gradients & Text */
-    .gradient-text {
-      background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% auto;
-      animation: gradientMove 5s ease infinite;
-    }
-
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Glassmorphism */
-    .glass {
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .glass-card {
-      background: rgba(30, 41, 59, 0.4);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Background Mesh Gradient */
-    .bg-mesh {
-      background-color: #020617;
-      background-image:
-        radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
-      background-attachment: fixed;
-    }
-
-    /* Typography Overrides for Dark Mode */
-    .prose strong {
-      color: #e2e8f0;
-    }
-
-    .prose h3 {
-      color: #f1f5f9;
-    }
-
-    .prose li::marker {
-      color: #60a5fa;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1054764236351101"
     crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JX5PCSL6J"></script>
@@ -90,27 +21,25 @@
 
 </head>
 
-<body class="min-h-screen flex flex-col bg-mesh text-slate-100 selection:bg-fuchsia-500/30">
+<body class="min-h-screen flex flex-col">
 
   <!-- Navigation -->
-  <nav id="navbar" class="glass sticky top-0 z-50 transition-transform duration-300">
+  <nav id="navbar" class="comic-nav sticky top-0 z-50 transition-transform duration-300">
     <div class="container mx-auto flex items-center justify-between h-20 px-6">
       <a href="index.html"
-        class="text-2xl font-bold tracking-tight text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-400 hover:to-fuchsia-400 transition-all duration-300"
+        class="text-2xl font-bold tracking-tight text-slate-900 hover:text-slate-700 transition-all duration-300"
         style="font-family: 'Outfit', sans-serif;">
         blogfrommind
       </a>
 
-      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-        <a href="index.html"
-          class="hover:text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 after:transition-all after:duration-300 hover:after:w-full">Home</a>
-        <a href="about.html"
-          class="hover:text-white relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-fuchsia-400 after:transition-all after:duration-300 hover:after:w-full">About</a>
+      <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
       </div>
 
       <div class="md:hidden flex items-center">
         <button aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden');"
-          class="text-slate-300 hover:text-white transition">
+          class="text-slate-900 hover:text-slate-600 transition">
           <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
             <path stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -118,24 +47,24 @@
       </div>
     </div>
 
-    <div id="mobileMenu" class="md:hidden hidden px-6 pb-6 glass border-t-0 border-slate-800">
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-6 bg-white border-b-2 border-black">
       <a href="index.html"
-        class="block text-slate-300 py-3 hover:text-blue-400 transition border-b border-slate-800/50">Home</a>
-      <a href="about.html" class="block text-slate-300 py-3 hover:text-fuchsia-400 transition">About</a>
+        class="block text-slate-900 py-3 hover:text-yellow-600 transition border-b border-slate-200">Home</a>
+      <a href="about.html" class="block text-slate-900 py-3 hover:text-yellow-600 transition">About</a>
     </div>
   </nav>
 
   <main class="container mx-auto p-6 flex-grow py-12 relative z-10">
-    <article
-      class="glass-card rounded-3xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto border border-white/5 text-slate-100 relative overflow-hidden">
+    <article class="comic-card p-8 md:p-12 max-w-4xl mx-auto relative overflow-hidden bg-white">
 
       <!-- Decorative background blob -->
-      <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] pointer-events-none">
+      <div
+        class="absolute -top-20 -right-20 w-64 h-64 bg-yellow-200 rounded-full blur-[80px] pointer-events-none opacity-50">
       </div>
 
       <div class="mb-8 relative z-10">
         <a href="index.html"
-          class="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20 hover:bg-blue-500/20">
+          class="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-yellow-600 transition-colors duration-200 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 hover:bg-yellow-100">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m15 18-6-6 6-6"></path>
@@ -144,40 +73,41 @@
         </a>
       </div>
 
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight relative z-10">
-        Generative Adversarial Networks (GANs) in <span class="gradient-text">Creative AI</span>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-8 leading-tight tracking-tight relative z-10">
+        Generative Adversarial Networks (GANs) in <span class="text-highlight">Creative AI</span>
       </h1>
 
-      <div class="relative rounded-2xl overflow-hidden mb-10 shadow-2xl border border-white/10 group">
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent z-10"></div>
+      <div
+        class="relative rounded-2xl overflow-hidden mb-10 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group">
         <img src="images/post2.png" alt="GAN Workflow"
           class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700 ease-out"
-          onerror="this.onerror=null;this.src='https://placehold.co/800x450/1e293b/475569?text=Image+Missing';" />
+          onerror="this.onerror=null;this.src='https://placehold.co/800x450/f1f5f9/0f172a?text=Image+Missing';" />
       </div>
 
-      <section class="prose prose-lg prose-invert max-w-none text-slate-300 leading-relaxed relative z-10">
-        <p class="text-xl mb-8 font-light text-slate-200 leading-relaxed">
+      <section class="prose prose-lg max-w-none text-slate-600 leading-relaxed relative z-10">
+        <p class="text-xl mb-8 font-light text-slate-700 leading-relaxed">
           Generative Adversarial Networks (GANs) represent a groundbreaking approach in artificial intelligence,
           primarily used for generating new data that resembles a given training dataset. They are particularly powerful
           in creative AI applications, pushing the boundaries of what machines can create.
         </p>
 
-        <h3 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
-          <span class="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 mt-8 flex items-center gap-3">
+          <span class="w-8 h-1 bg-yellow-400 rounded-full border border-black"></span>
           How GANs Work: The Adversarial Process
         </h3>
         <p class="mb-4">GANs operate on a unique adversarial principle, involving two neural networks that compete
           against each other:</p>
         <ul class="space-y-4 mb-8 ml-4">
           <li class="flex gap-3">
-            <span class="text-blue-400 font-bold">•</span>
-            <span><strong class="text-white">Generator</strong>: This network is responsible for producing new data
+            <span class="text-yellow-500 font-bold">•</span>
+            <span><strong class="text-slate-900">Generator</strong>: This network is responsible for producing new data
               samples (e.g., images, music, text) from random noise. Its goal is to create data that is
               indistinguishable from real data.</span>
           </li>
           <li class="flex gap-3">
-            <span class="text-blue-400 font-bold">•</span>
-            <span><strong class="text-white">Discriminator</strong>: This network acts as a critic, evaluating whether a
+            <span class="text-yellow-500 font-bold">•</span>
+            <span><strong class="text-slate-900">Discriminator</strong>: This network acts as a critic, evaluating
+              whether a
               given data sample is real (from the training set) or fake (generated by the generator). Its goal is to
               accurately distinguish between real and generated data.</span>
           </li>
@@ -187,52 +117,59 @@
           at detecting subtle flaws in the generated data. This iterative process leads to the generation of highly
           convincing and novel outputs.</p>
 
-        <h3 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
-          <span class="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></span>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 mt-8 flex items-center gap-3">
+          <span class="w-8 h-1 bg-yellow-400 rounded-full border border-black"></span>
           Creative Applications
         </h3>
         <p class="mb-4">The power of GANs has unlocked numerous creative possibilities across various domains:</p>
         <ul class="space-y-3 mb-8 ml-4">
-          <li class="flex gap-3"><span class="text-purple-400">✓</span> <strong>Art Generation</strong>: Creating unique
+          <li class="flex gap-3"><span class="text-yellow-500 font-bold">✓</span> <strong>Art Generation</strong>:
+            Creating unique
             and novel artworks, often in specific styles.</li>
-          <li class="flex gap-3"><span class="text-purple-400">✓</span> <strong>Photo Realism</strong>: Generating
+          <li class="flex gap-3"><span class="text-yellow-500 font-bold">✓</span> <strong>Photo Realism</strong>:
+            Generating
             highly realistic images of faces, landscapes, and objects that are difficult to distinguish from real
             photographs.</li>
-          <li class="flex gap-3"><span class="text-purple-400">✓</span> <strong>Style Transfer</strong>: Applying the
+          <li class="flex gap-3"><span class="text-yellow-500 font-bold">✓</span> <strong>Style Transfer</strong>:
+            Applying the
             artistic style of one image to the content of another.</li>
-          <li class="flex gap-3"><span class="text-purple-400">✓</span> <strong>Image-to-Image Translation</strong>:
+          <li class="flex gap-3"><span class="text-yellow-500 font-bold">✓</span> <strong>Image-to-Image
+              Translation</strong>:
             Transforming images from one domain to another (e.g., converting sketches to photorealistic images, day to
             night scenes).</li>
-          <li class="flex gap-3"><span class="text-purple-400">✓</span> <strong>Music Composition</strong>: Generating
+          <li class="flex gap-3"><span class="text-yellow-500 font-bold">✓</span> <strong>Music Composition</strong>:
+            Generating
             new musical pieces in various genres.</li>
         </ul>
 
-        <h3 class="text-2xl font-bold text-white mb-4 mt-8 flex items-center gap-3">
-          <span class="w-8 h-1 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full"></span>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 mt-8 flex items-center gap-3">
+          <span class="w-8 h-1 bg-yellow-400 rounded-full border border-black"></span>
           Notable Models
         </h3>
         <p class="mb-4">Several advanced GAN architectures have emerged, each contributing to the field's rapid
           progress:</p>
         <ul class="space-y-4 mb-8 ml-4">
-          <li class="bg-slate-800/50 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <strong class="text-blue-300 block mb-1">StyleGAN2 & StyleGAN3</strong>
+          <li
+            class="bg-white p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <strong class="text-slate-900 block mb-1">StyleGAN2 & StyleGAN3</strong>
             Developed by NVIDIA, these models are renowned for their ability to generate incredibly high-resolution and
             controllable photorealistic images, particularly human faces.
           </li>
-          <li class="bg-slate-800/50 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <strong class="text-purple-300 block mb-1">CycleGAN</strong>
+          <li
+            class="bg-white p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <strong class="text-slate-900 block mb-1">CycleGAN</strong>
             This model enables image-to-image translation without paired training data, allowing for tasks like
             converting horses to zebras or summer landscapes to winter scenes.
           </li>
-          <li class="bg-slate-800/50 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
-            <strong class="text-pink-300 block mb-1">BigGAN</strong>
+          <li
+            class="bg-white p-4 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <strong class="text-slate-900 block mb-1">BigGAN</strong>
             Known for generating diverse and high-fidelity images across a wide range of categories.
           </li>
         </ul>
 
-        <div
-          class="bg-gradient-to-br from-blue-900/30 to-purple-900/30 p-6 rounded-2xl border border-blue-500/20 mt-10">
-          <p class="text-lg m-0 italic text-slate-200">
+        <div class="bg-yellow-50 p-6 rounded-2xl border-l-4 border-yellow-400 mt-10">
+          <p class="text-lg m-0 italic text-slate-800">
             "GANs continue to be a vibrant area of research, with ongoing advancements in stability, control, and
             diversity of generated outputs. Their potential to revolutionize creative industries and beyond is immense,
             promising a future where AI plays an even larger role in artistic expression and content creation."
@@ -242,17 +179,17 @@
     </article>
   </main>
 
-  <footer class="border-t-0 border-slate-800 bg-slate-950/50 backdrop-blur-xl mt-20">
+  <footer class="border-t-2 border-black bg-slate-50 mt-20">
     <div class="container mx-auto px-6 py-12">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="text-center md:text-left">
-          <a href="index.html" class="text-2xl font-bold tracking-tight text-white mb-2 block"
+          <a href="index.html" class="text-2xl font-bold tracking-tight text-slate-900 mb-2 block"
             style="font-family: 'Outfit', sans-serif;">blogfrommind</a>
           <p class="text-slate-500 text-sm">Exploring the intersection of humanity and artificial intelligence.</p>
         </div>
 
         <div class="flex gap-6">
-          <a href="#" class="text-slate-400 hover:text-white transition-colors">
+          <a href="#" class="text-slate-400 hover:text-slate-900 transition-colors">
             <span class="sr-only">Twitter</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -260,7 +197,7 @@
               </path>
             </svg>
           </a>
-          <a href="#" class="text-slate-400 hover:text-white transition-colors">
+          <a href="#" class="text-slate-400 hover:text-slate-900 transition-colors">
             <span class="sr-only">GitHub</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <path fill-rule="evenodd"
@@ -271,11 +208,11 @@
         </div>
       </div>
       <div
-        class="border-t border-slate-800/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+        class="border-t border-slate-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
         <p>&copy; 2025 blogfrommind. All rights reserved.</p>
         <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
-          <a href="#" class="hover:text-slate-300 transition">Terms of Service</a>
+          <a href="#" class="hover:text-slate-900 transition">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-900 transition">Terms of Service</a>
         </div>
       </div>
     </div>
